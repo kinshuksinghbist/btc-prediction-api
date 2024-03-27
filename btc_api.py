@@ -9,7 +9,7 @@ import yfinance as yf
 app = Flask(__name__)
 
 
-@app.route("/predict", methods=["GET"])
+@app.route("/", methods=["GET"])
 def make_prediction():
     cols_bin = []
     vols_bin = []
