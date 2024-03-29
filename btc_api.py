@@ -16,8 +16,6 @@ def make_prediction():
 
     try:
         loaded_model = joblib.load("RF_BTC_1D.joblib")
-
-        
         data = yf.download("BTC-USD", period="19d")
 
         
