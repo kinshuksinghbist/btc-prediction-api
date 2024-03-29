@@ -4,6 +4,8 @@ import joblib
 from joblib import load  
 from flask import Flask, jsonify, request
 import yfinance as yf
+from gevent.pywsgi import WSGIServer
+
 
 
 app = Flask(__name__)
@@ -75,4 +77,5 @@ def make_prediction():
         return jsonify({"error": str(e)}), 500
 
 if __name__ == "__main__":
-  app.run(host="0.0.0.0", port=int("5000"))
+  http_server = WSGIServer(('', 5000), app)
+  http_server.serve_forever()
