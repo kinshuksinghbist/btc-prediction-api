@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 import joblib
-from joblib import load  
+from joblib import load  # Import joblib for loading
 from flask import Flask, jsonify, request
 import yfinance as yf
 
@@ -16,15 +16,17 @@ def make_prediction():
 
     try:
         loaded_model = joblib.load("RF_BTC_1D.joblib")
+
+        # Download data
         data = yf.download("BTC-USD", period="19d")
 
-        
+        # Preprocess data
         data['Date'] = data.index
         data = data.reset_index(drop=True)
         data = data[["Date", "Adj Close", "Volume"]].rename(columns={"Adj Close": "Close"})
-        data['returns'] = np.log(data['Close'] / data['Close'].shift(1)) 
+        data['returns'] = np.log(data['Close'] / data['Close'].shift(1))  # Calculate pct returns
         data.dropna(inplace=True) 
-        data['direction'] = np.sign(data['returns']).astype(int)
+        data['direction'] = np.sign(data['returns']).astype(int)  # Assign direction to changes
         data['pct_change_v'] = np.log(data['Volume'] / data['Volume'].shift(1))
         data.dropna(inplace=True)
         lags = [1, 2, 3, 4, 5, 6, 7, 8]
@@ -74,3 +76,5 @@ def make_prediction():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
+if __name__ == "__main__":
+  app.run(host="0.0.0.0", port=int("5000"))
