@@ -1,6 +1,6 @@
 ---
 
-# 🚀 Cryptocurrency Prediction API with Docker and Flask
+# 🚀 BTC/USDT Prediction API with Docker and Flask
 
 ![Docker](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white)
 ![Flask](https://img.shields.io/badge/Flask-000000?logo=flask&logoColor=white)
@@ -50,12 +50,12 @@ This project contains a machine learning-based cryptocurrency prediction API usi
    
 2. **Build the Docker Image**:
     ```bash
-    docker build -t crypto-prediction-api .
+    docker build -t btc-prediction-api .
     ```
 
 3. **Run the Docker Container**:
     ```bash
-    docker run -d -p 5000:5000 crypto-prediction-api
+    docker run -d -p 5000:5000 btc-prediction-api
     ```
 
 4. The API will now be available at `http://localhost:5000`.
@@ -69,7 +69,7 @@ This project contains a machine learning-based cryptocurrency prediction API usi
 
 2. Navigate to the project directory:
     ```bash
-    cd crypto-prediction-api
+    cd btc-prediction-api
     ```
 
 3. Install dependencies:
