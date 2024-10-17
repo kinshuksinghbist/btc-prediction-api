@@ -10,6 +10,10 @@ app = Flask(__name__)
 
 
 @app.route("/", methods=["GET"])
+'''
+    Code for the GET req from frontend.
+'''
+
 def make_prediction():
     cols_bin = []
     vols_bin = []
