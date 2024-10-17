@@ -64,7 +64,7 @@ This project contains a machine learning-based cryptocurrency prediction API usi
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/your-username/crypto-prediction-api.git
+    git clone https://github.com/kinshuksinghbist/crypto-prediction-api.git
     ```
 
 2. Navigate to the project directory:
